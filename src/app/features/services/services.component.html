@@ -1,0 +1,80 @@
+<div class="services-container">
+  <div class="services-header">
+    <h1 class="page-title">Nuestros Cursos Profesionales</h1>
+    <p class="page-description">
+      En el Instituto de Belleza Madrigal ofrecemos cursos especializados impartidos por profesionales con amplia experiencia en el sector. Todos nuestros programas incluyen prácticas profesionales y certificación avalada por las principales asociaciones de estilismo.
+    </p>
+  </div>
+
+  <div class="featured-courses">
+    <div class="featured-course">
+      <div class="featured-badge">DESTACADO</div>
+      <h2>Programa Renovado: Colorimetría Profesional</h2>
+      <p>¡Ahora con contenido expandido de 6 meses de duración! Domina desde los fundamentos del color hasta las técnicas brasileñas más avanzadas.</p>
+    </div>
+    
+    <div class="featured-course estilismo">
+      <div class="featured-badge">PROMOCIÓN</div>
+      <h2>Estilismo y Corte Unisex: ¡1 MES GRATIS!</h2>
+      <p>Formación completa de 8 meses + 1 mes adicional sin costo. Aprende todas las técnicas de corte, peinado y tratamientos capilares para convertirte en un profesional integral.</p>
+    </div>
+    
+    <div class="featured-course barberia">
+      <div class="featured-badge">COMPLETO</div>
+      <h2>Barbería Profesional: Formación Integral</h2>
+      <p>Programa de 6 meses con estructura modular que abarca desde técnicas de corte hasta gestión de negocios. ¡Prepárate para destacar en el mundo de la barbería!</p>
+    </div>
+  </div>
+
+  <div class="courses-grid">
+    <mat-card class="course-card" *ngFor="let course of courses; let i = index" [ngClass]="{'colorimetria': i === 0, 'estilismo': i === 1, 'barberia': i === 2}">
+      <div class="course-image-container">
+        <!-- Placeholder para imagen -->
+        <div class="course-image-placeholder">
+          <mat-icon>image</mat-icon>
+          <span>{{course.title}}</span>
+        </div>
+      </div>
+
+      <mat-card-header>
+        <mat-card-title>{{course.title}}</mat-card-title>
+        <mat-card-subtitle>
+          <span class="course-detail"><mat-icon>access_time</mat-icon> {{course.duration}}</span>
+          <span class="course-detail"><mat-icon>school</mat-icon> {{course.level}}</span>
+        </mat-card-subtitle>
+      </mat-card-header>
+
+      <mat-card-content>
+        <p>{{course.description}}</p>
+        <h3>Temas principales:</h3>
+        
+        <!-- Para cursos normales -->
+        <ul *ngIf="!course.topicsDetailed">
+          <li *ngFor="let topic of course.topics">{{topic}}</li>
+        </ul>
+        
+        <!-- Para el curso de barbería con temas detallados -->
+        <div *ngIf="course.topicsDetailed" class="detailed-topics">
+          <div *ngFor="let category of course.topicsDetailed" class="topic-category">
+            <h4>{{category.category}}:</h4>
+            <ul>
+              <li *ngFor="let subtopic of category.subtopics">{{subtopic}}</li>
+            </ul>
+          </div>
+        </div>
+      </mat-card-content>
+
+      <mat-card-actions>
+        <button mat-raised-button color="primary" routerLink="/contact">Inscribirse</button>
+        <button mat-button color="accent" (click)="openCourseDetails(course)">Más Información</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+
+  <div class="cta-section">
+    <h2>¿Estás listo para comenzar tu carrera profesional?</h2>
+    <p>Nuestros asesores están disponibles para ayudarte a elegir el curso perfecto para ti.</p>
+    <button mat-raised-button color="primary" routerLink="/contact">Solicitar Información</button>
+  </div>
+</div>
+

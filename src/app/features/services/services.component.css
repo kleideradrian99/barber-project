@@ -1,0 +1,234 @@
+.services-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.services-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.page-title {
+  color: #3f51b5;
+  font-size: 2.2rem;
+  margin-bottom: 15px;
+}
+
+.page-description {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Estilos para cursos destacados */
+.featured-courses {
+  margin-bottom: 30px;
+}
+
+.featured-course {
+  background: linear-gradient(135deg, #f8e8ff 0%, #f0e0fe 100%);
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  position: relative;
+  border-left: 5px solid #3f51b5;
+  box-shadow: 0 4px 12px rgba(156, 39, 176, 0.15);
+}
+
+.featured-course.estilismo {
+  background: linear-gradient(135deg, #e8f4ff 0%, #e0f0fe 100%);
+  border-left: 5px solid #2196f3;
+  box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+}
+
+.featured-course.barberia {
+  background: linear-gradient(135deg, #edfff3 0%, #e0ffee 100%);
+  border-left: 5px solid #4caf50;
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.15);
+}
+
+.featured-course.estilismo h2 {
+  color: #2196f3;
+}
+
+.featured-course.barberia h2 {
+  color: #4caf50;
+}
+
+.featured-badge {
+  position: absolute;
+  top: -12px;
+  right: 20px;
+  background-color: #3f51b5;
+  color: white;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.featured-course.estilismo .featured-badge {
+  background-color: #2196f3;
+}
+
+.featured-course.barberia .featured-badge {
+  background-color: #4caf50;
+}
+
+.featured-course h2 {
+  color: #3f51b5;
+  margin-bottom: 10px;
+  font-size: 1.6rem;
+}
+
+.featured-course p {
+  margin: 0;
+  color: #555;
+}
+
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+.course-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.course-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+/* Estilos para la estructura de temas detallados */
+.detailed-topics {
+  margin-top: 10px;
+}
+
+.topic-category {
+  margin-bottom: 15px;
+}
+
+.topic-category h4 {
+  color: #333;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.topic-category ul {
+  padding-left: 20px;
+}
+
+.course-image-container {
+  height: 180px;
+  background-color: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.course-image-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #3f51b5;
+}
+
+.course-image-placeholder mat-icon {
+  font-size: 3rem;
+  width: 3rem;
+  height: 3rem;
+  margin-bottom: 10px;
+}
+
+.course-detail {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 15px;
+  color: #666;
+}
+
+.course-detail mat-icon {
+  font-size: 18px;
+  width: 18px;
+  height: 18px;
+  margin-right: 5px;
+}
+
+mat-card-content {
+  flex-grow: 1;
+}
+
+mat-card-content ul {
+  padding-left: 20px;
+}
+
+mat-card-content li {
+  margin-bottom: 5px;
+}
+
+.cta-section {
+  background-color: #f5f5f5;
+  padding: 50px 30px;
+  text-align: center;
+  border-radius: 8px;
+  margin-top: 40px;
+}
+
+.cta-section h2 {
+  color: #3f51b5;
+  margin-bottom: 15px;
+}
+
+.cta-section p {
+  max-width: 600px;
+  margin: 0 auto 30px;
+}
+
+/* Estilos especiales para las tarjetas de cursos destacados */
+.course-card.colorimetria {
+  border: 2px solid #3f51b5;
+  box-shadow: 0 4px 15px rgba(156, 39, 176, 0.2);
+}
+
+.course-card.colorimetria mat-card-title {
+  color: #3f51b5;
+}
+
+.course-card.estilismo {
+  border: 2px solid #2196f3;
+  box-shadow: 0 4px 15px rgba(33, 150, 243, 0.2);
+}
+
+.course-card.estilismo mat-card-title {
+  color: #2196f3;
+}
+
+.course-card.barberia {
+  border: 2px solid #4caf50;
+  box-shadow: 0 4px 15px rgba(76, 175, 80, 0.2);
+}
+
+.course-card.barberia mat-card-title {
+  color: #4caf50;
+}
+
+.course-card.barberia .course-image-placeholder {
+  color: #4caf50;
+}
+
+@media (max-width: 768px) {
+  .courses-grid {
+    grid-template-columns: 1fr;
+  }
+}

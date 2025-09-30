@@ -1,0 +1,75 @@
+<div class="about-container">
+  <section class="about-header">
+    <h1 class="page-title">El Instituto Madrigal</h1>
+    <p class="page-description">
+      Somos un instituto líder en la formación de profesionales de la belleza, dedicados a transformar vidas a través de la enseñanza de alta calidad en estilismo, barbería y técnicas de belleza integral.
+    </p>
+  </section>
+
+  <section class="about-story">
+    <div class="about-story-content">
+      <h2>"LA PASIÓN QUE NOS UNE"</h2>
+      <p>
+        Todo comenzó con un sueño: crear un espacio donde la belleza y la pasión se unieran para transformar vidas. Después de años de experiencia en la industria de la peluquería y la belleza, decidimos unirnos para crear un instituto que fuera más que un lugar de aprendizaje, un hogar para aquellos que comparten nuestra pasión.
+      </p>
+      <p>
+        Con mucho esfuerzo y dedicación, logramos hacer realidad nuestro sueño. Nuestro instituto de peluquería y belleza integral, nació con la misión de brindar educación de alta calidad y experiencias únicas a nuestros estudiantes. Queremos que nuestros estudiantes se sientan apoyados, inspirados y motivados para alcanzar sus metas y sueños.
+      </p>
+      <p>
+        Nuestro equipo de profesores y profesionales está comprometido con la excelencia y la innovación. Estamos orgullosos de ofrecer programas y servicios que se adaptan a la necesidad de cada estudiante, desde cursos de peluquería unisex, colorimetría, barbería y manicure.
+      </p>
+    </div>
+    <div class="about-story-image">
+      <!-- Placeholder para imagen del instituto -->
+      <div class="image-placeholder">
+        <mat-icon>domain</mat-icon>
+        <span>Nuestras Instalaciones</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="values-section">
+    <h2 class="section-title">Nuestros Valores</h2>
+    <div class="values-grid">
+      <mat-card class="value-card" *ngFor="let value of values">
+        <mat-icon class="value-icon">{{value.icon}}</mat-icon>
+        <mat-card-title>{{value.title}}</mat-card-title>
+        <mat-card-content>
+          <p>{{value.description}}</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </section>
+
+  <section class="instructors-section">
+    <h2 class="section-title">Nuestro Equipo</h2>
+    <p class="section-description">
+      En Instituto Madrigal contamos con instructores certificados y con amplia experiencia en el sector, apasionados por la enseñanza y el mundo de la belleza.
+    </p>
+    <div class="instructors-grid">
+      <mat-card class="instructor-card" *ngFor="let instructor of instructors">
+        <div class="instructor-image">
+          <!-- Placeholder para foto del instructor -->
+          <div class="image-placeholder">
+            <mat-icon>person</mat-icon>
+          </div>
+        </div>
+        <mat-card-header>
+          <mat-card-title>{{instructor.name}}</mat-card-title>
+          <mat-card-subtitle>{{instructor.position}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p>{{instructor.bio}}</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </section>
+
+  <section class="about-cta">
+    <div class="cta-content">
+      <h2>¡Forma parte de nuestra comunidad!</h2>
+      <p>Descubre cómo podemos ayudarte a alcanzar tus metas profesionales en el mundo de la belleza.</p>
+      <a mat-raised-button color="primary" routerLink="/contact">Inscríbete Ahora</a>
+    </div>
+  </section>
+</div>

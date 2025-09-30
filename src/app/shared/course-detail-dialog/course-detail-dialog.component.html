@@ -1,0 +1,68 @@
+<div class="dialog-container">
+  <div class="dialog-header">
+    <h2 mat-dialog-title>{{data.title}}</h2>
+    <button mat-icon-button (click)="close()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+
+  <mat-dialog-content class="dialog-content">
+    <div class="course-details">
+      <div class="course-image-container" *ngIf="data.image">
+        <div class="course-image-placeholder">
+          <mat-icon>image</mat-icon>
+          <span>{{data.title}}</span>
+        </div>
+      </div>
+
+      <div class="course-info">
+        <div class="course-metadata">
+          <span class="detail-badge">
+            <mat-icon>access_time</mat-icon>
+            {{data.duration}}
+          </span>
+          <span class="detail-badge">
+            <mat-icon>school</mat-icon>
+            {{data.level}}
+          </span>
+        </div>
+
+        <h3>Descripción del Curso</h3>
+        <p class="course-description">{{data.description}}</p>
+
+        <h3>¿Qué Aprenderás?</h3>
+        
+        <!-- Temas normales -->
+        <div *ngIf="!data.topicsDetailed" class="topics-list">
+          <ul>
+            <li *ngFor="let topic of data.topics">{{topic}}</li>
+          </ul>
+        </div>
+        
+        <!-- Temas detallados (como en barbería) -->
+        <div *ngIf="data.topicsDetailed" class="topics-detailed">
+          <div *ngFor="let category of data.topicsDetailed" class="topic-category">
+            <h4>{{category.category}}</h4>
+            <ul>
+              <li *ngFor="let subtopic of category.subtopics">{{subtopic}}</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3>Beneficios de Este Curso</h3>
+        <ul class="benefits-list">
+          <li>Certificación profesional reconocida en el sector</li>
+          <li>Prácticas con clientes reales bajo supervisión</li>
+          <li>Asesoramiento personalizado de instructores expertos</li>
+          <li>Materiales de estudio incluidos</li>
+          <li>Bolsa de empleo para egresados</li>
+        </ul>
+      </div>
+    </div>
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="end">
+    <button mat-button (click)="close()">Cerrar</button>
+    <button mat-raised-button color="primary" [routerLink]="['/contact']" (click)="close()">Inscribirme</button>
+  </mat-dialog-actions>
+</div>

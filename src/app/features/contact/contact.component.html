@@ -1,0 +1,105 @@
+<div class="contact-container">
+  <div class="contact-header">
+    <h1 class="page-title">Inscripción a Cursos</h1>
+    <p class="page-description">
+      Completa el formulario para solicitar información sobre nuestros cursos o iniciar tu proceso de inscripción. Uno de nuestros asesores se pondrá en contacto contigo a la brevedad.
+    </p>
+  </div>
+
+  <div class="contact-content">
+    <div class="form-container">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Formulario de Inscripción</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
+            <mat-form-field appearance="outline">
+              <mat-label>Nombre completo</mat-label>
+              <input matInput formControlName="name" placeholder="Escribe tu nombre completo">
+              <mat-icon matSuffix>person</mat-icon>
+              <mat-error *ngIf="contactForm.get('name')?.hasError('required')">El nombre es obligatorio</mat-error>
+              <mat-error *ngIf="contactForm.get('name')?.hasError('minlength')">El nombre debe tener al menos 3 caracteres</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>Correo electrónico</mat-label>
+              <input matInput formControlName="email" placeholder="ejemplo@correo.com">
+              <mat-icon matSuffix>email</mat-icon>
+              <mat-error *ngIf="contactForm.get('email')?.hasError('required')">El correo es obligatorio</mat-error>
+              <mat-error *ngIf="contactForm.get('email')?.hasError('email')">Ingresa un correo válido</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>Teléfono</mat-label>
+              <input matInput formControlName="phone" placeholder="Número de teléfono">
+              <mat-icon matSuffix>phone</mat-icon>
+              <mat-error *ngIf="contactForm.get('phone')?.hasError('required')">El teléfono es obligatorio</mat-error>
+              <mat-error *ngIf="contactForm.get('phone')?.hasError('pattern')">Ingresa un número válido (8-10 dígitos)</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>Curso de interés</mat-label>
+              <mat-select formControlName="course">
+                <mat-option *ngFor="let course of courses" [value]="course">{{ course }}</mat-option>
+              </mat-select>
+              <mat-error *ngIf="contactForm.get('course')?.hasError('required')">Selecciona un curso</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>Mensaje o consulta</mat-label>
+              <textarea matInput formControlName="message" rows="4" placeholder="Escribe tu consulta o comentario adicional"></textarea>
+              <mat-error *ngIf="contactForm.get('message')?.hasError('maxlength')">El mensaje no puede exceder los 500 caracteres</mat-error>
+            </mat-form-field>
+
+            <div class="form-actions">
+              <button mat-raised-button color="primary" type="submit" [disabled]="contactForm.invalid">Enviar Solicitud</button>
+              <button mat-button type="reset">Limpiar</button>
+            </div>
+          </form>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <div class="contact-info">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Información de Contacto</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="info-item">
+            <mat-icon>location_on</mat-icon>
+            <div>
+              <h3>Dirección</h3>
+              <p>Av. Principal #123, Ciudad</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <mat-icon>call</mat-icon>
+            <div>
+              <h3>Teléfono</h3>
+              <p>(123) 456-7890</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <mat-icon>email</mat-icon>
+            <div>
+              <h3>Email</h3>
+              <p>inscripciones&#64;institutomadrigal.com</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <mat-icon>access_time</mat-icon>
+            <div>
+              <h3>Horario de Atención</h3>
+              <p>Lunes a Viernes: 9:00 AM - 7:00 PM<br>Sábados: 9:00 AM - 2:00 PM</p>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

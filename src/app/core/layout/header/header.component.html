@@ -1,0 +1,52 @@
+<mat-toolbar class="header-toolbar">
+  <div class="container">
+    <div class="logo-container">
+      <a class="logo" routerLink="/">
+        <div class="logo-icon">
+          <mat-icon>content_cut</mat-icon>
+        </div>
+        <div class="logo-text">
+          <span class="logo-main">Instituto Madrigal</span>
+          <span class="logo-tagline">Escuela de Belleza Profesional</span>
+        </div>
+      </a>
+    </div>
+    
+    <!-- Desktop Menu -->
+    <div class="desktop-menu">
+      <div class="nav-links">
+        <ng-container *ngFor="let item of menuItems; let i = index">
+          <a mat-button [routerLink]="item.route" routerLinkActive="active-link" 
+             [routerLinkActiveOptions]="{exact: item.route === '/home'}"
+             class="nav-item" [class]="'nav-item-' + i">
+            {{ item.label }}
+            <div class="nav-item-underline"></div>
+          </a>
+        </ng-container>
+      </div>
+      <button mat-raised-button color="accent" class="cta-button" routerLink="/contact">
+        <mat-icon>school</mat-icon>
+        ¡Inscríbete Ya!
+      </button>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+      <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Menu" class="menu-trigger">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu" class="mobile-menu-panel">
+        <ng-container *ngFor="let item of menuItems">
+          <a mat-menu-item [routerLink]="item.route" routerLinkActive="active-link">
+            {{ item.label }}
+          </a>
+        </ng-container>
+        <mat-divider></mat-divider>
+        <a mat-menu-item routerLink="/contact" class="mobile-cta">
+          <mat-icon>school</mat-icon>
+          ¡Inscríbete Ya!
+        </a>
+      </mat-menu>
+    </div>
+  </div>
+</mat-toolbar>
