@@ -6,6 +6,7 @@ import { UserLoginComponent } from './user-login/user-login.component';
 import { UserRegisterComponent } from './user-register/user-register.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UserBarberProfileComponent } from './user-barbers/user-barber-profile/user-barber-profile.component';
+import { ExploreMapComponent } from './user-barbers/explore-map/explore-map.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { UserBarberProfileComponent } from './user-barbers/user-barber-profile/u
         UserLoginComponent,
         UserRegisterComponent,
         UserProfileComponent,
-        UserBarberProfileComponent
+        UserBarberProfileComponent,
+        ExploreMapComponent
     ]
 })
 export class UserModule { }

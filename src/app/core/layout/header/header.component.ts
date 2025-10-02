@@ -22,7 +22,7 @@ import { MatButtonModule } from '@angular/material/button';
 export class HeaderComponent {
   // Menú principal — ajusta rutas si corresponde
   menuItems = [
-    { label: 'Explorar', route: '/user/explorar', icon: 'explore' },
+    { label: 'Explorar', route: '/user/explore', icon: 'explore' },
     { label: 'Ofertas', route: '/user/ofertas', icon: 'local_offer' },
     { label: 'Barberías', route: '/user/barbers', icon: 'content_cut' },
     { label: 'Perfil', route: '/user/profile', icon: 'account_circle' }

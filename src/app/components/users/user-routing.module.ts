@@ -9,6 +9,7 @@ const routes: Routes = [
     { path: 'profile', loadComponent: () => import('./user-profile/user-profile.component').then(m => m.UserProfileComponent) },
     { path: 'barbers', loadComponent: () => import('./user-barbers/user-barbers.component').then(m => m.UserBarbersComponent) },
     { path: 'barber/:id', loadComponent: () => import('./user-barbers/user-barber-profile/user-barber-profile.component').then(m => m.UserBarberProfileComponent) },
+    { path: 'explore', loadComponent: () => import('./user-barbers/explore-map/explore-map.component').then(m => m.ExploreMapComponent) },
 ];
 
 @NgModule({
