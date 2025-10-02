@@ -1,0 +1,71 @@
+<div class="booking-root">
+    <div class="handle" *ngIf="bsRef"></div>
+
+    <div class="head">
+        <h3>{{ bookingData?.service?.name || 'Reservar' }}</h3>
+        <div class="head-actions">
+            <button mat-icon-button (click)="close()"><mat-icon>close</mat-icon></button>
+        </div>
+    </div>
+
+    <!-- progress simple -->
+    <!-- <div class="progress">
+        <div class="step" [class.active]="step >= 1">1. Profesional</div>
+        <div class="step" [class.active]="step >= 2">2. Fecha</div>
+        <div class="step" [class.active]="step >= 3">3. Hora</div>
+    </div> -->
+
+    <div class="body">
+        <div class="price" *ngIf="bookingData?.service">$ {{ bookingData.service.price | number:'1.0-0' }}</div>
+
+        <!-- Paso 1: seleccionar profesional -->
+        <h4>Seleccione el profesional</h4>
+        <div class="options slider" data-group="professionals">
+            <button class="option-btn" *ngFor="let p of (bookingData.professionals || [])"
+                [ngClass]="{ active: selectedProfessional === p }" (click)="selectProfessional(p)"
+                [attr.data-option]="p">
+                {{ p }}
+            </button>
+        </div>
+
+        <!-- Paso 2: seleccionar fecha (oculto hasta elegir profesional) -->
+        <div *ngIf="step >= 2">
+            <h4>Seleccione la fecha</h4>
+
+            <div class="loader" *ngIf="loadingDates">
+                <mat-progress-spinner diameter="28" mode="indeterminate"></mat-progress-spinner>
+            </div>
+
+            <div class="options slider" data-group="dates" *ngIf="!loadingDates">
+                <div *ngIf="availableDates.length === 0" class="empty">No hay fechas disponibles</div>
+                <button class="option-btn" *ngFor="let d of availableDates" [ngClass]="{ active: selectedDate === d }"
+                    (click)="selectDate(d)" [attr.data-option]="d">
+                    {{ d }}
+                </button>
+            </div>
+        </div>
+
+        <!-- Paso 3: horas -->
+        <div *ngIf="step >= 3">
+            <h4>Seleccione la hora</h4>
+
+            <div class="loader" *ngIf="loadingHours">
+                <mat-progress-spinner diameter="28" mode="indeterminate"></mat-progress-spinner>
+            </div>
+
+            <div class="options slider" data-group="hours" *ngIf="!loadingHours">
+                <div *ngIf="availableHours.length === 0" class="empty">No hay horas disponibles</div>
+                <button class="option-btn" *ngFor="let h of availableHours" [ngClass]="{ active: selectedHour === h }"
+                    (click)="selectHour(h)" [attr.data-option]="h">
+                    {{ h }}
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <button mat-stroked-button (click)="back()">Atrás</button>
+        <button class="reserve-btn" (click)="reserve()"
+            [disabled]="!selectedProfessional || !selectedDate || !selectedHour">Reservar</button>
+    </div>
+</div>

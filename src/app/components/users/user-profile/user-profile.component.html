@@ -1,0 +1,54 @@
+<div class="profile-page">
+    <div class="profile-card">
+        <h2 class="title">Perfil</h2>
+
+        <div class="avatar-wrap">
+            <div class="avatar">
+                <mat-icon>account_circle</mat-icon>
+            </div>
+            <button mat-icon-button class="edit-avatar" aria-label="Editar avatar" (click)="onEditAvatar()">
+                <mat-icon>edit</mat-icon>
+            </button>
+            <div class="profile-name">{{ profileForm.value.name || 'Usuario' }}</div>
+        </div>
+
+        <form [formGroup]="profileForm" (ngSubmit)="onSave()" class="profile-form">
+            <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Nombre</mat-label>
+                <input matInput formControlName="name" />
+                <mat-error *ngIf="f.name.touched && f.name.hasError('required')">El nombre es requerido</mat-error>
+                <mat-error *ngIf="f.name.hasError('minlength')">Mínimo 2 caracteres</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="email" />
+                <mat-error *ngIf="f.email.touched && f.email.hasError('email')">Email inválido</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Género</mat-label>
+                <mat-select formControlName="gender">
+                    <mat-option value="">No especificar</mat-option>
+                    <mat-option value="male">Masculino</mat-option>
+                    <mat-option value="female">Femenino</mat-option>
+                    <mat-option value="other">Otro</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Fecha de Nacimiento</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="birthdate" readonly />
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                <mat-error *ngIf="f.birthdate.touched && f.birthdate.hasError('required')">La fecha es
+                    requerida</mat-error>
+            </mat-form-field>
+
+            <div class="actions">
+                <button mat-raised-button color="primary" type="submit" class="save-btn">Guardar</button>
+                <button mat-button type="button" class="cancel-btn" (click)="navigateBack()">Cancelar</button>
+            </div>
+        </form>
+    </div>
+</div>

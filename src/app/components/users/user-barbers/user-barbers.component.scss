@@ -1,0 +1,441 @@
+/* mobile-first styles */
+$page-bg: #f7f8fa;
+$card-bg: #ffffff;
+$primary: #001426;
+$text: #111;
+$muted: #777;
+
+.page {
+    min-height: 100vh;
+    background: $page-bg;
+    padding: 80px 12px 100px;
+    /* top for header, bottom for bottom-nav */
+    box-sizing: border-box;
+}
+
+/* HERO */
+.hero {
+    margin-bottom: 16px;
+
+    .hero-track {
+        display: flex;
+        gap: 12px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 8px;
+
+        .hero-slide {
+            min-width: calc(100% - 48px);
+            flex: 0 0 auto;
+            scroll-snap-align: center;
+            border-radius: 10px;
+            overflow: hidden;
+            background: $card-bg;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+            position: relative;
+
+            img {
+                width: 100%;
+                height: 160px;
+                object-fit: cover;
+                display: block;
+            }
+
+            .hero-caption {
+                position: absolute;
+                left: 12px;
+                bottom: 12px;
+                color: white;
+                text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+
+                h3 {
+                    margin: 0;
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+
+    .hero-controls {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 8px;
+
+        button {
+            background: rgba(9, 90, 165, 0.06);
+        }
+
+        .dots {
+            display: flex;
+            gap: 6px;
+            align-items: center;
+
+            .dot {
+                width: 8px;
+                height: 8px;
+                border-radius: 999px;
+                background: rgba(0, 0, 0, 0.12);
+                border: none;
+
+                &.active {
+                    background: $primary;
+                    width: 16px;
+                    border-radius: 10px;
+                    height: 8px;
+                }
+            }
+        }
+    }
+}
+
+/* Sections */
+.section {
+    margin-bottom: 18px;
+
+    .section-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+
+        h4 {
+            margin: 0;
+            font-size: 14px;
+            font-weight: 700;
+            color: $text;
+        }
+
+        .see-more {
+            color: $primary;
+            font-size: 13px;
+            text-decoration: none;
+        }
+    }
+
+    /* Horizontal scroll row for mobile */
+    .cards-row {
+        display: flex;
+        gap: 12px;
+        overflow-x: auto;
+        padding-bottom: 8px;
+        -webkit-overflow-scrolling: touch;
+
+        .card {
+            min-width: 220px;
+            flex: 0 0 auto;
+            background: $card-bg;
+            border-radius: 10px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+
+            .card-media img {
+                width: 100%;
+                height: 120px;
+                object-fit: cover;
+                display: block;
+            }
+
+            .card-body {
+                padding: 10px;
+
+                .card-title {
+                    font-weight: 700;
+                    font-size: 14px;
+                    color: $text;
+                }
+
+                .card-sub {
+                    font-size: 12px;
+                    color: $muted;
+                    margin: 6px 0;
+                }
+
+                .card-link {
+                    color: $primary;
+                    font-weight: 600;
+                    font-size: 13px;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}
+
+/* Desktop styles: grid layout and larger hero */
+@media (min-width: 900px) {
+    .page {
+        padding: 100px 24px 40px;
+    }
+
+    .hero {
+        .hero-track {
+            gap: 18px;
+
+            .hero-slide {
+                min-width: 720px;
+
+                img {
+                    height: 360px;
+                }
+            }
+        }
+
+        .hero-controls {
+            justify-content: flex-end;
+        }
+    }
+
+    .section {
+        .cards-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            overflow: visible;
+
+            /* ya no swipe */
+            .card {
+                min-width: auto;
+            }
+        }
+    }
+}
+
+/* Accessibility & small improvements */
+.hero-track:focus {
+    outline: none;
+}
+
+.cards-row::-webkit-scrollbar {
+    height: 8px;
+}
+
+.cards-row::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+}
+
+/* mobile-first styles */
+$page-bg: #f7f8fa;
+$card-bg: #ffffff;
+$primary: #095aa5;
+$text: #111;
+$muted: #777;
+
+.page {
+    min-height: 100vh;
+    background: $page-bg;
+    padding: 80px 12px 100px;
+    /* top for header, bottom for bottom-nav */
+    box-sizing: border-box;
+}
+
+/* HERO */
+.hero {
+    margin-bottom: 16px;
+
+    .hero-track {
+        display: flex;
+        gap: 12px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 8px;
+
+        .hero-slide {
+            min-width: calc(100% - 48px);
+            flex: 0 0 auto;
+            scroll-snap-align: center;
+            border-radius: 10px;
+            overflow: hidden;
+            background: $card-bg;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+            position: relative;
+
+            img {
+                width: 100%;
+                height: 160px;
+                object-fit: cover;
+                display: block;
+            }
+
+            .hero-caption {
+                position: absolute;
+                left: 12px;
+                bottom: 12px;
+                color: white;
+                text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+
+                h3 {
+                    margin: 0;
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+
+    .hero-controls {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 8px;
+
+        button {
+            background: rgba(9, 90, 165, 0.06);
+        }
+
+        .dots {
+            display: flex;
+            gap: 6px;
+            align-items: center;
+
+            .dot {
+                width: 8px;
+                height: 8px;
+                border-radius: 999px;
+                background: rgba(0, 0, 0, 0.12);
+                border: none;
+
+                &.active {
+                    background: $primary;
+                    width: 16px;
+                    border-radius: 10px;
+                    height: 8px;
+                }
+            }
+        }
+    }
+}
+
+/* Sections */
+.section {
+    margin-bottom: 18px;
+
+    .section-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+
+        h4 {
+            margin: 0;
+            font-size: 14px;
+            font-weight: 700;
+            color: $text;
+        }
+
+        .see-more {
+            color: $primary;
+            font-size: 13px;
+            text-decoration: none;
+        }
+    }
+
+    /* Horizontal scroll row for mobile */
+    .cards-row {
+        display: flex;
+        gap: 12px;
+        overflow-x: auto;
+        padding-bottom: 8px;
+        -webkit-overflow-scrolling: touch;
+
+        .card {
+            min-width: 220px;
+            flex: 0 0 auto;
+            background: $card-bg;
+            border-radius: 10px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+
+            .card-media img {
+                width: 100%;
+                height: 120px;
+                object-fit: cover;
+                display: block;
+            }
+
+            .card-body {
+                padding: 10px;
+
+                .card-title {
+                    font-weight: 700;
+                    font-size: 14px;
+                    color: $text;
+                }
+
+                .card-sub {
+                    font-size: 12px;
+                    color: $muted;
+                    margin: 6px 0;
+                }
+
+                .card-link {
+                    color: $primary;
+                    font-weight: 600;
+                    font-size: 13px;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}
+
+/* Desktop styles: grid layout and larger hero */
+@media (min-width: 900px) {
+    .page {
+        padding: 100px 24px 40px;
+    }
+
+    .hero {
+        .hero-track {
+            gap: 18px;
+
+            .hero-slide {
+                min-width: 720px;
+
+                img {
+                    height: 360px;
+                }
+            }
+        }
+
+        .hero-controls {
+            justify-content: flex-end;
+        }
+    }
+
+    .section {
+        .cards-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            overflow: visible;
+
+            /* ya no swipe */
+            .card {
+                min-width: auto;
+            }
+        }
+    }
+}
+
+/* Accessibility & small improvements */
+.hero-track:focus {
+    outline: none;
+}
+
+.cards-row::-webkit-scrollbar {
+    height: 8px;
+}
+
+.cards-row::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+}

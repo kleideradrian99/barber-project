@@ -1,0 +1,176 @@
+.booking-root {
+    width: 100%;
+    max-width: 720px;
+    box-sizing: border-box;
+    padding: 12px 16px 20px;
+    background: white;
+    border-radius: 12px 12px 0 0;
+    color: #001426;
+
+    .handle {
+        width: 42px;
+        height: 6px;
+        background: rgba(0, 0, 0, 0.12);
+        border-radius: 6px;
+        margin: 6px auto 10px;
+        display: block;
+    }
+
+    .head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        h3 {
+            margin: 0;
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .head-actions button {
+            color: #001426;
+        }
+    }
+
+    .progress {
+        display: flex;
+        gap: 8px;
+        margin: 10px 0;
+
+        .step {
+            font-size: 12px;
+            color: rgba(0, 20, 38, 0.5);
+            padding: 6px 10px;
+            border-radius: 999px;
+            background: rgba(0, 0, 0, 0.02);
+        }
+
+        .step.active {
+            background: rgba(24, 80, 111, 0.08);
+            color: #18506F;
+            font-weight: 700;
+        }
+    }
+
+    .body {
+        margin-top: 6px;
+        margin-bottom: 2rem;
+
+        .price {
+            color: #001426;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        h4 {
+            margin: 12px 0 8px;
+            font-size: 14px;
+            color: #001426;
+        }
+
+        .loader {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .options.slider {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            padding-bottom: 6px;
+            -webkit-overflow-scrolling: touch;
+            /* smooth on iOS */
+            scroll-snap-type: x mandatory;
+            align-items: center;
+
+            /* esconder scrollbar visual (ajusta para compatibilidad) */
+            &::-webkit-scrollbar {
+                height: 8px;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                background: rgba(0, 0, 0, 0.06);
+                border-radius: 8px;
+            }
+
+            scrollbar-width: thin;
+            scrollbar-color: rgba(0, 0, 0, 0.06) transparent;
+
+            .option-btn {
+                flex: 0 0 auto;
+                /* no crecer, ancho auto */
+                scroll-snap-align: center;
+                /* centra el item al hacer scrollIntoView */
+                margin: 0;
+            }
+        }
+
+        .empty {
+            color: #999;
+            font-size: 13px;
+            margin-bottom: 8px;
+        }
+
+        .option-btn {
+            appearance: none;
+            border: 1px solid #001426;
+            background: #ffffff;
+            color: #001426;
+            border-radius: 999px;
+            padding: 8px 14px;
+            font-size: 14px;
+            font-weight: 600;
+            height: 36px;
+            cursor: pointer;
+            transition: transform .12s ease, background .12s ease;
+        }
+
+        .option-btn:hover {
+            transform: translateY(-2px);
+            background: rgba(0, 20, 38, 0.04);
+        }
+
+        .option-btn.active {
+            background: #18506F;
+            color: #fff;
+            border-color: #18506F;
+            box-shadow: 0 6px 18px rgba(24, 80, 111, 0.12);
+        }
+    }
+
+    .footer {
+        display: flex;
+        gap: 10px;
+        margin-top: 12px;
+
+        button[mat-stroked-button] {
+            flex: 0 0 auto;
+        }
+
+        .reserve-btn {
+            flex: 1;
+            height: 44px;
+            border-radius: 10px;
+            border: none;
+            background: #001426;
+            color: #fff;
+            font-weight: 700;
+        }
+
+        .reserve-btn[disabled] {
+            opacity: 0.6;
+            pointer-events: none;
+        }
+    }
+}
+
+/* Desktop dialog styling */
+@media (min-width: 769px) {
+    .booking-root {
+        border-radius: 8px;
+        padding: 20px;
+        max-width: 520px;
+    }
+}

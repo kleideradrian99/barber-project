@@ -1,0 +1,53 @@
+<div class="profile-shell">
+    <!-- HERO (swipeable row) -->
+    <section class="hero">
+        <div class="hero-track" role="region" aria-label="Galería">
+            <figure *ngFor="let img of barber.images; let i = index" class="slide" [class.active]="i === activeImage">
+                <img [src]="img" [alt]="'Imagen ' + (i+1)" />
+            </figure>
+        </div>
+
+        <div class="hero-top">
+            <button mat-icon-button class="back" (click)="goBack()"
+                aria-label="Volver"><mat-icon>close</mat-icon></button>
+            <button mat-icon-button class="fav" (click)="toggleHeart()" aria-label="Favorito">
+                <mat-icon>{{ barber.hearted ? 'favorite' : 'favorite_border' }}</mat-icon>
+            </button>
+        </div>
+
+        <div class="hero-controls">
+            <button mat-icon-button aria-label="Anterior"
+                (click)="prevImage()"><mat-icon>chevron_left</mat-icon></button>
+            <div class="dots">
+                <button *ngFor="let _ of barber.images; let i = index" class="dot" [class.active]="i === activeImage"
+                    (click)="setActiveImage(i)"></button>
+            </div>
+            <button mat-icon-button aria-label="Siguiente"
+                (click)="nextImage()"><mat-icon>chevron_right</mat-icon></button>
+        </div>
+    </section>
+
+    <!-- content -->
+    <section class="content">
+        <h2 class="name">{{ barber.name }}</h2>
+        <div class="address">{{ barber.address }}</div>
+        <p class="desc">{{ barber.description }}</p>
+
+        <div class="services-head">
+            <h3>Lista de Servicios:</h3>
+        </div>
+
+        <div class="services-list">
+            <article *ngFor="let s of services" class="service-row">
+                <div class="service-info">
+                    <div class="title">{{ s.name }}</div>
+                    <div class="price"> $ {{ s.price | number:'1.0-0' }}</div>
+                    <div *ngIf="s.desc" class="desc">{{ s.desc }}</div>
+                </div>
+                <div class="actions">
+                    <button mat-stroked-button class="book-btn" (click)="onBook(s)">Agendar</button>
+                </div>
+            </article>
+        </div>
+    </section>
+</div>

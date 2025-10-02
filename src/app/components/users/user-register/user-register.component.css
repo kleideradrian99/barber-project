@@ -1,0 +1,104 @@
+/* register.component.scss - basado en login.component.scss */
+.login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f4f4f4;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 600px) {
+  .login-container {
+    margin-top: 50px;
+    margin-bottom: 100px;
+  }
+}
+
+
+.register-container .login-banner {
+  margin-bottom: 20px;
+}
+
+.banner-img {
+  width: 100%;
+  height: auto;
+  max-width: 420px;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.login-title {
+  font-size: 26px;
+  font-weight: 700;
+  margin: 10px 0 18px 0;
+  text-align: left !important;
+  width: 100%;
+  max-width: 420px;
+}
+
+.login-form {
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  padding: 18px;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  box-sizing: border-box;
+}
+
+.full-width {
+  width: 100%;
+}
+
+mat-form-field {
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+.login-button {
+  margin-top: 10px;
+  background-color: #001426 !important;
+  color: white !important;
+  height: 44px;
+  font-weight: 500;
+}
+
+.no-member {
+  color: gray;
+  margin-top: 12px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.registro {
+  color: #001426;
+  cursor: pointer;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+/* botón icon dentro de mat-form-field */
+button[mat-icon-button] {
+  background: transparent;
+}
+
+/* responsive */
+@media (max-width: 600px) {
+  .login-title {
+    font-size: 20px;
+  }
+
+  .login-form {
+    padding: 14px;
+    margin-top: 6px;
+  }
+
+  .banner-img {
+    max-width: 320px;
+  }
+}

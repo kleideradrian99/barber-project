@@ -1,0 +1,62 @@
+<!-- register.component.html -->
+<div class="login-container register-container">
+    <div class="login-banner">
+        <img src="https://media.istockphoto.com/id/1321048753/es/vector/los-hombres-se-dirigen-entre-la-luz-del-poste-de-la-barber%C3%ADa.jpg?s=612x612&w=0&k=20&c=NVyDVgtRlSB8TSVlamAeQ62AzYK9Pqg99dR3QTBbRbI="
+            alt="Banner" class="banner-img" />
+    </div>
+
+    <h2 class="login-title">Crea tu cuenta</h2>
+
+    <form class="login-form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <mat-form-field class="full-width" appearance="fill">
+            <input matInput placeholder="Nombre completo" formControlName="name" />
+            <mat-error *ngIf="f.name.touched && f.name.hasError('required')">El nombre es requerido</mat-error>
+            <mat-error *ngIf="f.name.hasError('minlength')">Mínimo 2 caracteres</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="full-width" appearance="fill">
+            <input matInput placeholder="Email" formControlName="email" />
+            <mat-error *ngIf="f.email.touched && f.email.hasError('required')">El email es requerido</mat-error>
+            <mat-error *ngIf="f.email.touched && f.email.hasError('email')">Email inválido</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="full-width" appearance="fill">
+            <input matInput [type]="passwordVisible ? 'text' : 'password'" placeholder="Contraseña"
+                formControlName="password" />
+            <button mat-icon-button matSuffix type="button" (click)="togglePasswordVisibility()">
+                <mat-icon>{{ passwordVisible ? 'visibility_off' : 'visibility' }}</mat-icon>
+            </button>
+            <mat-hint>8+ caracteres, mayúscula, minúscula, número y símbolo</mat-hint>
+            <mat-error *ngIf="f.password.touched && f.password.hasError('required')">La contraseña es
+                requerida</mat-error>
+            <mat-error *ngIf="f.password.touched && f.password.hasError('pattern')">Contraseña insegura</mat-error>
+            <mat-error *ngIf="f.password.touched && f.password.hasError('minlength')">Mínimo 8 caracteres</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="full-width" appearance="fill">
+            <input matInput [type]="confirmPasswordVisible ? 'text' : 'password'" placeholder="Confirmar contraseña"
+                formControlName="confirmPassword" />
+            <button mat-icon-button matSuffix type="button" (click)="toggleConfirmPasswordVisibility()">
+                <mat-icon>{{ confirmPasswordVisible ? 'visibility_off' : 'visibility' }}</mat-icon>
+            </button>
+            <mat-error *ngIf="f.confirmPassword.touched && f.confirmPassword.hasError('required')">Confirma la
+                contraseña</mat-error>
+            <mat-error *ngIf="registerForm.errors?.passwordMismatch && f.confirmPassword.touched">Las contraseñas no
+                coinciden</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="full-width" appearance="fill">
+            <input matInput [matDatepicker]="picker" placeholder="Fecha de nacimiento" formControlName="birthdate"
+                readonly />
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error *ngIf="f.birthdate.touched && f.birthdate.hasError('required')">La fecha es requerida</mat-error>
+        </mat-form-field>
+
+        <button mat-raised-button class="login-button" type="submit"
+            [disabled]="registerForm.invalid">Registrarme</button>
+
+        <p class="no-member">¿Ya tienes cuenta? <span class="registro" (click)="navigateToLogin()">Inicia Sesión</span>
+        </p>
+    </form>
+</div>

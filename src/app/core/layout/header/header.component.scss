@@ -1,0 +1,223 @@
+/* header.component.scss */
+
+/* Variables */
+$primary: #001426;
+$bg: #ffffffb3;
+$text: #111;
+$muted: #505050;
+
+/* Toolbar (desktop) */
+.header-toolbar {
+  background: $bg;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+  padding: 0;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+}
+
+.toolbar-inner {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: inherit;
+
+  .logo-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    background: rgba(9, 90, 165, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    mat-icon {
+      font-size: 22px;
+      color: $primary;
+    }
+  }
+
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+
+    .logo-main {
+      font-weight: 700;
+      font-size: 16px;
+      color: $text;
+    }
+
+    .logo-tagline {
+      font-size: 12px;
+      color: $muted;
+      line-height: 1;
+    }
+  }
+}
+
+/* Desktop nav */
+.desktop-nav {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+
+  .nav-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: $muted;
+    padding: 8px 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.15s, background 0.15s, transform 0.08s;
+
+    .nav-icon {
+      font-size: 20px;
+      color: inherit;
+    }
+
+    &:hover {
+      color: $primary;
+      background: rgba(9, 90, 165, 0.06);
+      transform: translateY(-1px);
+    }
+
+    &.active {
+      color: $primary;
+      background: rgba(9, 90, 165, 0.08);
+    }
+
+    .nav-label {
+      line-height: 1;
+    }
+  }
+}
+
+/* BOTTOM nav (mobile) - hidden by default on desktop */
+.bottom-nav {
+  display: none;
+  /* oculto en desktop por defecto */
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: $bg;
+  box-shadow: 0 -6px 18px rgba(0, 0, 0, 0.06);
+  z-index: 60;
+  padding: env(safe-area-inset-bottom, 8px) 10px 8px;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+
+  /* los estilos de layout solo se aplican cuando lo mostramos (via media query) */
+  .nav-item {
+    flex: 1;
+    text-align: center;
+    text-decoration: none;
+    color: $muted;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 6px 4px;
+    border-radius: 8px;
+    transition: color 0.12s, transform 0.12s;
+
+    .icon-btn {
+      height: 44px;
+      width: 44px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+    }
+
+    mat-icon {
+      font-size: 22px;
+      display: block;
+      line-height: 1;
+    }
+
+    .nav-label {
+      font-size: 11px;
+      line-height: 1;
+      color: $muted;
+    }
+
+    &.active {
+      color: $primary;
+
+      .nav-label {
+        color: $primary;
+        font-weight: 700;
+      }
+
+      .icon-btn {
+        background: rgba(9, 90, 165, 0.06);
+      }
+
+      mat-icon {
+        color: $primary;
+      }
+    }
+  }
+}
+
+/* Mostrar/Ocultar según tamaño: bottom nav SOLO en mobile (<=600px) */
+@media (max-width: 600px) {
+  .desktop-nav {
+    display: none;
+    /* ocultar nav de escritorio */
+  }
+
+  .header-toolbar {
+    height: 64px;
+    padding: 0;
+  }
+
+  .toolbar-inner {
+    padding: 0 12px;
+  }
+
+  .bottom-nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 6px;
+  }
+
+  /* Opcional: ocultar texto largo del logo en móvil para ahorrar espacio */
+  .logo .logo-text .logo-tagline {
+    display: none;
+  }
+
+  .logo .logo-text .logo-main {
+    font-size: 14px;
+  }
+}
+
+/* Ajuste para pantallas muy grandes */
+@media (min-width: 1201px) {
+  .toolbar-inner {
+    max-width: 1400px;
+  }
+}

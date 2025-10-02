@@ -1,0 +1,128 @@
+/* profile.component.scss */
+$primary: #001426;
+$bg: #ffffff;
+$text: #111;
+$muted: #777;
+
+.profile-page {
+    min-height: 100vh;
+    background: #f7f8fa;
+    padding: 90px 16px 88px;
+    /* top for fixed header + bottom for bottom-nav safe area */
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.profile-card {
+    width: 100%;
+    max-width: 720px;
+    background: $bg;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+    padding: 22px;
+    box-sizing: border-box;
+}
+
+/* header title */
+.title {
+    text-align: left;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 18px;
+    color: $text;
+}
+
+/* avatar area */
+.avatar-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+    position: relative;
+
+    .avatar {
+        width: 86px;
+        height: 86px;
+        border-radius: 18px;
+        background: rgba(9, 90, 165, 0.15);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 8px;
+
+        mat-icon {
+            font-size: 44px;
+            color: $primary;
+        }
+    }
+
+    .edit-avatar {
+        position: absolute;
+        right: calc(58% - 30px);
+        top: 48px;
+        background: $bg;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    .profile-name {
+        font-weight: 700;
+        color: $text;
+        margin-top: 6px;
+    }
+}
+
+/* form */
+.profile-form {
+    margin-top: 6px;
+
+    .full-width {
+        width: 100%;
+        margin-bottom: 12px;
+    }
+
+    mat-form-field {
+        width: 100%;
+    }
+
+    .actions {
+        display: flex;
+        gap: 12px;
+        margin-top: 8px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .save-btn {
+        background: $primary !important;
+        color: white !important;
+    }
+
+    .cancel-btn {
+        color: $muted;
+    }
+}
+
+/* responsive */
+@media (max-width: 600px) {
+    .profile-card {
+        padding: 18px;
+        border-radius: 10px;
+    }
+
+    .avatar {
+        width: 72px;
+        height: 72px;
+        border-radius: 14px;
+
+        mat-icon {
+            font-size: 36px;
+        }
+    }
+
+    .edit-avatar {
+        right: calc(68% - 24px) !important;
+        top: 40px;
+    }
+}

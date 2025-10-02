@@ -1,0 +1,28 @@
+<!-- login.component.html -->
+<div class="login-container">
+    <div class="login-banner">
+        <img src="https://media.istockphoto.com/id/1321048753/es/vector/los-hombres-se-dirigen-entre-la-luz-del-poste-de-la-barber%C3%ADa.jpg?s=612x612&w=0&k=20&c=NVyDVgtRlSB8TSVlamAeQ62AzYK9Pqg99dR3QTBbRbI="
+            alt="Banner" class="banner-img" />
+    </div>
+
+    <h2 class="login-title">Bienvenido!</h2>
+
+    <form class="login-form" (ngSubmit)="onSubmit()">
+        <mat-form-field class="full-width">
+            <input matInput placeholder="Usuario" [(ngModel)]="username" name="username" required />
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+            <input matInput [type]="passwordVisible ? 'text' : 'password'" placeholder="Contraseña"
+                [(ngModel)]="password" name="password" required />
+            <button mat-icon-button type="button" (click)="togglePasswordVisibility()">
+                <mat-icon>{{ passwordVisible ? 'visibility_off' : 'visibility' }}</mat-icon>
+            </button>
+        </mat-form-field>
+        <p style="color: black; font-size: 14px; margin: 0;">¿Olvidaste tu contraseña?</p>
+        <button mat-raised-button class="login-button">Iniciar Sesión</button>
+
+        <p class="no-member">¿No eres miembro? <span class="registro" (click)="navigateToRegister()">Regístrate
+                Ahora</span></p>
+    </form>
+</div>

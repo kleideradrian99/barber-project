@@ -10,7 +10,7 @@ import { WhatsappButtonComponent } from './shared/whatsapp-button/whatsapp-butto
   imports: [RouterOutlet, CoreModule, WhatsappButtonComponent],
   template: `
     <app-main-layout></app-main-layout>
-    <app-whatsapp-button></app-whatsapp-button>
+    <!-- <app-whatsapp-button></app-whatsapp-button> -->
   `
 })
 export class AppComponent {

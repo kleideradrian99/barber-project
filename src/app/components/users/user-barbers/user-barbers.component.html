@@ -1,0 +1,62 @@
+<div class="page">
+    <!-- HERO carousel (mobile-first) -->
+    <section class="hero">
+        <div class="hero-track" role="region" aria-label="Promociones">
+            <article *ngFor="let s of heroSlides; let i = index" class="hero-slide">
+                <img [src]="s.image" [alt]="s.title" />
+                <div class="hero-caption">
+                    <h3>{{ s.title }}</h3>
+                </div>
+            </article>
+        </div>
+
+        <div class="hero-controls">
+            <button mat-icon-button aria-label="Anterior"
+                (click)="prevHero()"><mat-icon>chevron_left</mat-icon></button>
+            <div class="dots">
+                <button *ngFor="let s of heroSlides; let i = index" class="dot" [class.active]="i === activeHero"
+                    (click)="setActiveHero(i)" aria-label="Ir a slide {{i+1}}"></button>
+            </div>
+            <button mat-icon-button aria-label="Siguiente"
+                (click)="nextHero()"><mat-icon>chevron_right</mat-icon></button>
+        </div>
+    </section>
+
+    <!-- Nearby section -->
+    <section class="section">
+        <div class="section-head">
+            <h4>Barberías cerca de ti</h4>
+            <a routerLink="/user/barbers" class="see-more">Ver más</a>
+        </div>
+
+        <div class="cards-row">
+            <article *ngFor="let b of nearby" class="card" routerLink="/user/barber/{{b.id}}">
+                <div class="card-media"><img [src]="b.image" [alt]="b.name" /></div>
+                <div class="card-body">
+                    <div class="card-title">{{ b.name }}</div>
+                    <div class="card-sub">{{ b.subtitle }}</div>
+                    <a class="card-link">Ver</a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Recommended section -->
+    <section class="section">
+        <div class="section-head">
+            <h4>Recomendadas para ti</h4>
+            <a routerLink="/user/barbers" class="see-more">Ver más</a>
+        </div>
+
+        <div class="cards-row">
+            <article *ngFor="let r of recommended" class="card" routerLink="/user/barber/{{r.id}}">
+                <div class="card-media"><img [src]="r.image" [alt]="r.name" /></div>
+                <div class="card-body">
+                    <div class="card-title">{{ r.name }}</div>
+                    <div class="card-sub">{{ r.subtitle }}</div>
+                    <a class="card-link">Ver</a>
+                </div>
+            </article>
+        </div>
+    </section>
+</div>

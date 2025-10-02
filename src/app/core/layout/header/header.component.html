@@ -1,52 +1,35 @@
-<mat-toolbar class="header-toolbar">
-  <div class="container">
-    <div class="logo-container">
-      <a class="logo" routerLink="/">
-        <div class="logo-icon">
-          <mat-icon>content_cut</mat-icon>
-        </div>
-        <div class="logo-text">
-          <span class="logo-main">Instituto Madrigal</span>
-          <span class="logo-tagline">Escuela de Belleza Profesional</span>
-        </div>
-      </a>
-    </div>
-    
-    <!-- Desktop Menu -->
-    <div class="desktop-menu">
-      <div class="nav-links">
-        <ng-container *ngFor="let item of menuItems; let i = index">
-          <a mat-button [routerLink]="item.route" routerLinkActive="active-link" 
-             [routerLinkActiveOptions]="{exact: item.route === '/home'}"
-             class="nav-item" [class]="'nav-item-' + i">
-            {{ item.label }}
-            <div class="nav-item-underline"></div>
-          </a>
-        </ng-container>
+<!-- header.component.html -->
+
+<!-- TOP HEADER (desktop) -->
+<mat-toolbar class="header-toolbar" role="banner" aria-label="Cabecera principal">
+  <div class="toolbar-inner">
+    <a class="logo" routerLink="/" aria-label="Ir al inicio">
+      <div class="logo-icon">
+        <mat-icon>content_cut</mat-icon>
       </div>
-      <button mat-raised-button color="accent" class="cta-button" routerLink="/contact">
-        <mat-icon>school</mat-icon>
-        ¡Inscríbete Ya!
-      </button>
-    </div>
-    
-    <!-- Mobile Menu -->
-    <div class="mobile-menu">
-      <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Menu" class="menu-trigger">
-        <mat-icon>menu</mat-icon>
-      </button>
-      <mat-menu #menu="matMenu" class="mobile-menu-panel">
-        <ng-container *ngFor="let item of menuItems">
-          <a mat-menu-item [routerLink]="item.route" routerLinkActive="active-link">
-            {{ item.label }}
-          </a>
-        </ng-container>
-        <mat-divider></mat-divider>
-        <a mat-menu-item routerLink="/contact" class="mobile-cta">
-          <mat-icon>school</mat-icon>
-          ¡Inscríbete Ya!
-        </a>
-      </mat-menu>
-    </div>
+      <div class="logo-text">
+        <span class="logo-main">MultiBarber</span>
+        <span class="logo-tagline">Barberías al alcance de tu mano</span>
+      </div>
+    </a>
+
+    <nav class="desktop-nav" aria-label="Navegación principal">
+      <a *ngFor="let item of menuItems" class="nav-link" [routerLink]="item.route" routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: item.route === '/' }">
+        <mat-icon class="nav-icon" aria-hidden="true">{{ item.icon }}</mat-icon>
+        <span class="nav-label">{{ item.label }}</span>
+      </a>
+    </nav>
   </div>
 </mat-toolbar>
+
+<!-- BOTTOM NAV (mobile) -->
+<nav class="bottom-nav" role="navigation" aria-label="Navegación inferior">
+  <a *ngFor="let item of menuItems" class="nav-item" [routerLink]="item.route" routerLinkActive="active"
+    [routerLinkActiveOptions]="{ exact: true }" aria-label="{{ item.label }}">
+    <button mat-icon-button class="icon-btn" type="button" aria-hidden="true">
+      <mat-icon>{{ item.icon }}</mat-icon>
+    </button>
+    <span class="nav-label">{{ item.label }}</span>
+  </a>
+</nav>
